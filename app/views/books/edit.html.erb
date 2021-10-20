@@ -1,7 +1,7 @@
 <h2>Book edit</h2>
 
   <ul><% if @book.errors.any? %>
- <h3><%= @book.errors.count %>件のerror</h3>
+ <h3><%= @book.errors.count %>件のerrorです</h3>
  <%= @book.errors.full_messages.each do |message| %>
  <li><%= message %></li>
  <% end %>
