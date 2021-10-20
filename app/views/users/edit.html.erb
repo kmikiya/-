@@ -1,0 +1,29 @@
+<h2>User edit</h2>
+
+<ul><% if @user.errors.any? %>
+ <h3><%= @user.errors.count %>件のerror</h3>
+ <%= @user.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+ <% end %>
+ <% end %></ul>
+
+<%= form_with model:@user, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  
+  <div>
+      <%= f.attachment_field :profile_image %>
+  </div>
+  
+  <div class="field">
+      <%= f.label :introduction %>
+      <%= f.text_area :introduction %>
+  </div>
+  
+  <div>
+      <%= f.submit "update" %>
+  </div>
+ <% end %>

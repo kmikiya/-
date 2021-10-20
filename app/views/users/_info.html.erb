@@ -1,0 +1,14 @@
+<%= attachment_image_tag user, :profile_image,  :fill, 60, 60, fallback: "no_image.jpg", size:"62x62" %>
+<table class = "table">
+  <tbody>
+    <tr>
+       <th>name</th>
+       <th><%= user.name%></th>
+    </tr>
+    <tr>
+       <th>Introduction</th>
+       <th><%= user.introduction %></th>
+    </tr>   
+       <td><%= link_to "edit", edit_user_path(@user.id) %></td>
+  </tbody>
+  </table>
