@@ -1,0 +1,5 @@
+<%= form_with model:[book, book_comment], method: :post, local:true do |f| %> <!--url: book_book_comments-->
+<%= f.label :comment %>
+ <%= f.text_area :comment %>
+ <%= f.submit "create" %>
+ <% end %>

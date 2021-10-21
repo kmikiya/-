@@ -1,0 +1,43 @@
+
+ <div class="table">
+<h2>いいねした投稿</h2>
+<table>
+    <thead>
+        <th>タイトル</th>
+        
+    </thead>
+    <tbody>
+        <% @favorites.each do |favorite| %>
+        <tr>
+        <td>
+            <li><%= link_to book_path(favorite.book) do %>
+                <%= favorite.book.title %>
+                 <% end %>
+         </li>
+         </td>
+         </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
+
+
+ <div class="table">
+<h2>コメントした投稿</h2>
+<table>
+    <thead>
+        <th>タイトル</th>
+        <th>コメント内容</th>
+    </thead>
+    <tbody>
+        <% @comments.each do |comment| %>
+        <tr>
+        <td><%= link_to book_path(comment.book) do %>
+         <%= comment.book.title %>
+         <% end %></td>
+         <td><%= comment.comment %></td>
+         </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>
