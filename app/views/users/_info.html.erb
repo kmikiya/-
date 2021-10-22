@@ -9,7 +9,7 @@
     <tr>
        <th>Introduction</th>
        <th><%= user.introduction %></th>
-    </tr> 
+    </tr>
     <tr>
       <td>フォロワー数：</td>
       <td>
@@ -33,7 +33,10 @@
         <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-success" %>
       <% end %>
     </tr>
-       <td><%= link_to "edit", edit_user_path(@user.id) %></td>
-       
+       <td><%= link_to edit_user_path(user.id) do %>
+          <%= image_tag('setting.jpg', size: '40x30') %>
+        <% end %>
+       </td>
+
   </tbody>
   </table>

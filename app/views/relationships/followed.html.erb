@@ -1,0 +1,26 @@
+
+<div class="col-md-8 offset-md-1">
+  <h2>followed</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+    <th>image</th>
+    <th>name</th>
+    <th>introduction</th>
+  </thead>
+  <tbody>
+    <% @user.followings.each do |follow| %>
+    <tr>
+      <td><%= link_to user_path(follow) do %>
+    <%= attachment_image_tag follow, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:"40x40" %>
+    <% end %></td>
+    <td><%= follow.name %></td>
+    <td><%= follow.introduction %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+
+
+
