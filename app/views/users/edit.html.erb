@@ -1,29 +1,37 @@
-<h2>User edit</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User edit</h2>
+      <ul>
+        <% if @user.errors.any? %>
+          <h3><%= @user.errors.count %>件のerror</h3>
+          <%= @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= form_with model:@user, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :name %><br/>
+            <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="form-group">
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="form-group">
+          <%= f.label :introduction %><br>
+          <%= f.text_area :introduction %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "update", class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<ul><% if @user.errors.any? %>
- <h3><%= @user.errors.count %>件のerror</h3>
- <%= @user.errors.full_messages.each do |message| %>
- <li><%= message %></li>
- <% end %>
- <% end %></ul>
 
-<%= form_with model:@user, local: true do |f| %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  
-  <div>
-      <%= f.attachment_field :profile_image %>
-  </div>
-  
-  <div class="field">
-      <%= f.label :introduction %>
-      <%= f.text_area :introduction %>
-  </div>
-  
-  <div>
-      <%= f.submit "update" %>
-  </div>
- <% end %>
+
+
+

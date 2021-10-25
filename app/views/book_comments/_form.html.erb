@@ -1,5 +1,11 @@
-<%= form_with model:[book, book_comment], method: :post, local:true do |f| %> <!--url: book_book_comments-->
-<%= f.label :comment %>
- <%= f.text_area :comment %>
- <%= f.submit "create" %>
- <% end %>
+<%= attachment_image_tag current_user, :profile_image,  :fill, 60, 60, fallback: "no_image.jpg", size:"40x40" %>としてコメント
+<%= form_with model:[book, book_comment], method: :post, local:true, class: "form-inline" do |f| %> <!--url: book_book_comments-->
+  <div class="form-group">
+   <%= f.label :comment, class: "sr-only" %><br>
+   <%= f.text_area :comment, class: "form-control" %>
+  </div>
+  <dev class="form-group">
+   <%= f.submit "create" %>
+  </dev>
+
+<% end %>
